@@ -1,0 +1,148 @@
+/* ?reset */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Helvetica';
+}
+
+/* ?centrare ecran joc */
+.wrapper{
+  border: 3px solid #010124;
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('assets/background.png');
+  overflow: hidden;
+}
+
+/* ?setare scor in mijlocul elementului wrapper */
+.score{
+  font-size: 150px;
+  color: #010124;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* ? borderul ajuta sa vizualizez centrarea scorului cu mai multe cifre ex.130 */
+  /** border: 1px solid black; */
+  width: 200px;
+  height: 100px;
+  text-align: center;
+}
+
+/* ? stilizare div cu clasa countdown */
+.countdown{
+  position: absolute;
+  top: 490px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  color: #010124;
+}
+
+button{
+  /* ? pozitionare buton */
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #010124;
+  color: white;
+  /* ? padding top bottom 20px left-right 50px */
+  padding: 20px 50px;
+  /* ? colturi rotunjite */
+  border-radius: 5px;
+  /* ? ma asigur ca ramane mereu deasupra cu z-index */
+  z-index: 200;
+  cursor: pointer;
+  /* ? resetare stilizare buton default */
+  border: none;
+  outline: none;
+}
+
+/* ? stilizare zona de joc - .game sau game-area */
+.game{
+  /* border: 2px solid black; */
+  width: 600px;
+  height: 400px;
+  margin: 70px auto;
+  z-index: 200;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ? stilizare gropi */
+.hole{
+  /* border: 3px solid red; */
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 33.33%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.hole:after{
+  content: '';
+  display: block;
+  background-image: url('assets/sand1.png');
+  /* background: black; */
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  z-index: 2;
+  bottom: -30px;
+  background-size: contain;
+}
+
+.mole{
+  background-image: url('assets/yoda1.png');
+  position: absolute;
+  /** top: 100%; --> ascunde cartitele; modifica valorile ca sa vezi cum iesi cartitele// valori ridicate - ascund cartitele; valori scazute - le fac vizibile*/
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+  background-repeat: no-repeat;
+  /* ?pozitionare moles in gropi */
+  background-position: bottom;
+}
+
+.mole.small{
+  background-size: 60%;
+}
+
+.mole.large{
+  background-size: 80%;
+}
+
+/* ? -- va face cartitele sa iasa din gropi*/
+.hole.up .mole{
+  top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
